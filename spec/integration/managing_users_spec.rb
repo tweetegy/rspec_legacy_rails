@@ -11,16 +11,17 @@ describe "Managing Users" do
 
   def fillin_and_submit_form(name)
     within(".edit_user") do
-        fill_in 'user_first_name', :with => name
-      end
-      submit_form('.edit_user')
+      fill_in 'user_first_name', :with => name
+    end
+    submit_form('.edit_user')
   end
 
   context "editing a User" do
     it "should be possible to change the first name" do
-      user.first_name.should eq "The orig. name"
+      user.first_name.should eq "The orig. name" #not really required but here to demonstrate
       fillin_and_submit_form(new_name)
       user.reload.first_name.should eq new_name
+      save_and_open_page
     end
   end
 end

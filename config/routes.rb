@@ -1,3 +1,3 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :users
+  map.resources :users, :only => [:show, :edit, :update]
 end
